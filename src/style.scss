@@ -1,0 +1,964 @@
+:root {
+    --stroke: rgba(255, 255, 255, 0.363);
+    --color-dark: #223243;
+    --color-bluegreen: #00dfc4;
+    --color-gray: rgba(255, 255, 255, 0.1);
+    --color-light: #ffffffe3;
+    --bg-light: #223243;
+    --stroke-light: #2232434f;
+    --bgc-light: #ffffffe3;
+    --bg-dark: #223243;
+  }
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+@mixin mobile{
+    @media screen and (max-width:480px) {
+        @content
+    }
+}
+
+@mixin tablette{
+    @media screen and (max-width:768px) {
+        @content
+    }
+}
+
+@mixin laptop{
+    @media screen and (max-width:1200px) {
+        @content
+    }
+}
+
+
+body{
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.loginPage{
+    overflow: hidden;
+    background: var(--bg-dark);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+    .slogant{
+        flex: 1;
+        color: var(--bgc-light);
+    }
+
+    .loginForm{
+        flex: 1;
+        color: white;
+        height: 401px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem;
+
+        .containner{
+
+            form{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                background: #00000018;
+                padding: 1rem;
+                border-radius: .7rem;
+                z-index: 10;
+                backdrop-filter: blur(5px);
+                position: relative;
+                
+                h1{
+                    text-transform: uppercase;
+                    font-family: Arial, Helvetica, sans-serif;
+                    background: linear-gradient(135deg,transparent,rgb(56, 162, 211));
+                    -webkit-background-clip: text;
+                    color: transparent;
+                    animation: trans 3s linear infinite;
+                }
+                @keyframes trans{
+                    0%,50%{
+                        background-position: 0;
+                        
+                    }
+                    100%{
+                        background-position: 5rem;
+                    }
+                }
+
+                div {
+                    position: relative;
+                  }
+                  
+                div label {
+                    position: absolute;
+                    top: .5rem;
+                    left: 1rem;
+                    text-transform: capitalize;
+                    font-family: 'Times New Roman', Times, serif;
+                    transition: .5s ease;
+                  }
+
+                div i {
+                    position: absolute;
+                    top: .5rem;
+                    right: .7rem;
+                }
+                div input {
+                    height: 2rem;
+                    width: 15rem;
+                    outline: none;
+                    background: none;
+                    padding: 0.5rem;
+                    border: none;
+                    border-bottom: 1px solid aqua;
+                }
+                div input:focus~label {
+                    top: -.6rem;
+                    background: none;
+                    padding: 0 0.5rem;
+                    border-radius: 50px;
+                    font-size: .8rem;
+                    border: 1px solid rgba(0, 0, 0, 0.5);
+                }
+                .showPassword{
+                    display: flex;
+                    width: 15rem;
+                }
+
+                button{
+                    border: none;
+                    border-radius: 50px;
+                    color: #fff;
+                    background: rgba(0, 0, 255, 0.719);
+                    width: 107%;
+                    padding: 10px;
+
+                    &:hover{
+                        background: blue;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.homepage{
+    background: var(--bg-dark);
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    
+    .container{
+        background: var(--bg-dark);
+        border: 5px solid black;
+        border-radius: 10px;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+
+        .nav{
+            .navbar{
+                background: var(--bgc-light);
+                align-items: center;
+                justify-content: center;
+                height: 50px;
+                display: flex;
+                border-bottom: 1px solid black;
+                justify-content: space-between;
+                padding: 5px 10px;
+            
+                .logo{
+                    @include tablette{
+                        display: none;
+                    }
+                } //logo end
+
+                .recherche{
+                    input{
+                        background: #a4b6bd91;
+                        padding: 13px;
+                        width: 180%;
+                        border-radius: 20px;
+                        border: none;
+
+                        @include tablette{
+                            width: 50%;
+                        }
+
+                        .search__results{
+                            width: 100%;
+
+                            .search__result{
+                                border: 1px solid #EEE;
+                                margin: 4rem 1rem;
+                                padding: 0.4rem;
+                            }
+                        }
+                    }
+                }//recherche end
+
+                .autre{
+                    display: flex;
+                    gap: 20px;
+                    i{
+                        font-size: 35px;
+                    }
+                }//autre end
+            }//navbar end
+        }//nav end
+
+        .pageContent{
+            padding: 5px;
+            height: 100%;
+            display: flex;
+
+            .sideBar{
+                background: var(--bg-dark);
+                color: var(--color-light);
+                border-radius: 10px;
+                font-weight: bold;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 25px;
+                padding: 10px;
+
+                
+                .sideFoot{
+                    height: 50px;
+                    width: 109%;
+                    display: flex;
+                    position: relative;
+                    top: 208px;
+                    left: -13px;
+                    background: #c5c3c31f;
+                    button{
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        border-radius: 5px;
+                        border: none;
+                        background: #c5c3c31f;
+                        font-weight: bold;
+                        font-size: 20px;
+                        width: 100%;
+
+                        &:hover{
+                            background: beige;
+                            animation: btnDeconexion 2s infinite;
+    
+                            @keyframes btnDeconexion {
+                                0%{
+                                    background: beige;
+                                }
+                                100%{
+                                    background: #c5c3c31f;
+                                    color: white;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                @include laptop(){
+                    flex: 1;
+                }
+
+                @include mobile(){
+                    display: none;
+                }
+
+                @include tablette(){
+                    width: 50px;
+                }
+
+                .menu{
+                    color: white;
+                    margin: 20px;
+                    gap: 20px;
+
+                    &:hover{
+                        background: violet;
+                        color: #00dfc4;
+                    }
+                }
+                @include laptop(){
+                    flex: 1;
+                }
+
+                @include mobile(){
+                    display: none;
+                }
+
+                @include tablette(){
+                    width: 50px;
+                }
+            }//sidebar end
+
+            .contenu{
+                overflow-y: scroll;
+                width: 100%;
+                height: 90vh;
+                flex: 4;
+                border: 0.5px #c5c3c31f solid;
+                border-radius: 10px;
+                background: #c5c3c31f;
+                overflow: hidden;
+                
+                @include laptop(){
+
+                }
+
+                .contenuMenu{
+                    .employe{
+                        width: 100%;
+                        align-items: center;
+                        margin: 0;
+
+                        .empNav{
+                            background: linear-gradient(45deg, rgba(204, 46, 151, 0.719) 10%, rgba(24, 3, 145, 0.295));
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            height: 50px;
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+                            h2{
+                                margin-left: 10px;
+                                position: relative;
+                                top: -8px;
+                            }
+                    
+                            ul{
+                                list-style: none;
+                                display: flex; 
+                                justify-content: flex-end;
+                              
+                    
+                                li {
+                                  margin-right: 30px;
+                                  font-weight: bold;
+                                  font-size: 15px;
+                                  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+                                    &:hover{
+                                        background: #23016362;
+                                        border-radius: 5px;
+                                        color: whitesmoke;
+                                    }
+                                }
+                            }//ul end
+                        }//navbar end
+
+                        .contenuEmploye{
+                            overflow-y: scroll;
+                            overflow-x: hidden;
+                            width: 100%;
+                            height: 75vh;
+                            border-bottom: #00dfc4 2px solid;
+
+                            
+                            .employer-en-travail {
+                                display: grid;
+                                grid-template-columns: repeat(5, 1fr);
+                                gap: 15px;
+                                padding: 5px 5px;
+                              
+                                .profile {
+                                  width: 200px;
+                                  height: 300px;
+                                  border: 1px solid black;
+                                  border-radius: 1rem;
+                                  overflow: hidden;
+                                  padding-top: 10px;
+                                  position: relative;
+                              
+                                  .supp {
+                                    i {
+                                      font-size: 20px;
+                                      font-weight: bold;
+                                      color: red;
+                                      position: absolute;
+                                      top: 10px;
+                                      right: 10px;
+                                      transition: all 0.3s;
+                              
+                                      &:hover {
+                                        background: red;
+                                        color: white;
+                                        font-size: 25px;
+                                        border-radius: 50%;
+                                      }
+                                    }
+                                  }
+                              
+                                  .suppNot {
+                                    span {
+                                      background: rgba(5, 0, 0, 0.336);
+                                      position: absolute;
+                                      padding: 5px;
+                                      border-radius: 5px;
+                                      color: var(--bgc-light);
+                                      font-size: 12px;
+                                      top: 10px;
+                                      left: 50%;
+                                      transform: translateX(-50%);
+                                      display: none;
+                                      transition: all 0.3s;
+                                    }
+                                  }
+                              
+                                  &:hover {
+                                    .suppNot span {
+                                      display: block;
+                                    }
+                                  }
+                              
+                                  img {
+                                    width: 100%;
+                                    height: 100px;
+                                    height: auto;
+                                    display: block;
+                                  }
+                              
+                                  .infos {
+                                    background: #c5c3c360;
+                                    padding-left: 5px;
+                                    text-align: center;
+                                    height: 66%;
+                              
+                                    .personnel {
+                                      display: flex;
+                                      flex-direction: column;
+                                      align-items: center;
+                                      justify-content: center;
+                                      position: relative;
+                              
+                                      .buttonMore {
+                                        button {
+                                          background-color: rgba(14, 2, 71, 0.5215686275);
+                                          border: none;
+                                          border-radius: 5px;
+                                          padding: 5px;
+                                          color: white;
+                                          font-weight: 200;
+                                          width: 106%;
+                                          font-weight: bold;
+                                          transition: background 0.3s;
+                              
+                                          &:hover {
+                                            background: blue;
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                              
+                            .congeEnCours{
+                                display: flex;
+                                border: 1px solid var(--color-bluegreen);
+
+                                .img{
+                                    flex: 1;
+                                }
+
+                                .description{
+                                    flex: 7;
+                                    align-items: center;
+                                    justify-content: center;
+                                    .name{
+                                        text-align: center;
+                                        color: var(--bgc-light);
+                                    }
+                                    .infoConge{
+                                        display: flex;
+                                        .t{
+                                            flex: 1;
+                                            text-align: center;
+                                        }
+                                        .y{
+                                            flex: 1;
+                                            text-align: center;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .footerEmploye{
+                            height: 51px;
+                            overflow: hidden;
+                            background: none;
+                            padding: 10px;
+
+                            .foo{
+                                display: flex;
+    
+                                .titre{
+                                    flex: 2;
+                                }
+    
+                                .menuFootEmp{
+                                    flex: 1;
+                                    display: flex;
+                                    gap: 30px;
+                                    align-items: center;
+                                    justify-content: center;
+                                }
+
+                                button{
+                                    background: none;
+                                    border: none;
+                                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                                    font-size: 18px;
+                                    font-weight: bold;
+
+                                    &:hover{
+                                        color: white;
+                                    }
+                                }
+                            }
+                        }
+
+                        // .ajoutEmloye{
+                        //     background-color: beige;
+                        //     /* background-color: aqua; */
+                        //     align-items: center;
+                        //     justify-content: center;
+                        //     height: 445px;
+                        //     width: 344px;
+                        //     border: none;
+                        //     border-radius: 10px;
+                        //     padding: 0px 10px;
+                        //     margin: 5px 10px;
+                        //     position: relative;
+                        //     top: -478px;
+                        //     /* left: 949px; */
+                        //     right: -935px;
+                        // }//ajoutEmloye end
+
+                    }//employe end
+
+                    .conge{
+                        .navbar{
+                            
+                            .menuConge{
+                                background: linear-gradient(45deg, rgba(204, 46, 151, 0.719) 10%, rgba(24, 3, 145, 0.295));
+                                display: flex;
+                                justify-content: space-between;
+                                height: 50px;
+                                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                                align-items: center;
+                                // padding: 20px 10px;
+                                
+                                h2{
+                                    margin-left: 10px;
+                                    position: relative;
+                                    top: -8px;
+                                }
+                                
+                                ul{
+                                    list-style: none;
+                                    display: flex; 
+                                    justify-content: flex-end;
+                                
+                        
+                                    li {
+                                        height: 100%;
+                                        margin-right: 30px;
+                                        font-weight: bold;
+                                        font-size: 15px;
+                                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                
+                                        &:hover{
+                                            border-radius: 5px;
+                                            background: rgba(24, 3, 145, 0.411);
+                                            color: whitesmoke;
+                                        }
+                                    }//li end
+                                }//ul end
+                            }//menuconge end 
+                        }//nabarConge end
+
+                        .contenuConge{
+                            overflow-y: scroll;
+                            width: 100%;
+                            height: 75vh;
+                            padding: 3px;
+                            display: grid;
+                            gap: 20px;
+
+                            .congeEnCours{
+                                display: flex;
+                                border: 1px solid var(--color-bluegreen);
+
+                                .img{
+                                    flex: 1;
+                                }
+
+                                .description{
+                                    flex: 7;
+                                    align-items: center;
+                                    justify-content: center;
+                                    .name{
+                                        text-align: center;
+                                        color: var(--bgc-light);
+                                    }
+                                    .infoConge{
+                                        display: flex;
+                                        .t{
+                                            flex: 1;
+                                            text-align: center;
+                                        }
+                                        .y{
+                                            flex: 1;
+                                            text-align: center;
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+                    }//conge end
+                }// contenuMenu end
+            }
+        } //page content end
+
+    }//container end
+}//homepage end
+
+
+// .side{
+//     align-items: center;
+//     justify-content: center;
+//     // gap: 20px;
+
+//     .nb{
+//         padding: 0 10px;
+//     }
+
+//     .contenuside{
+//         padding: 10px;
+//         height: 100%;
+//         width: 95%;
+//         position: relative;
+
+//         .menu{
+//             padding: 10px;
+//             display: flex;
+//             align-items: center;
+//             gap: 10px;
+//             cursor: pointer;
+//             font-weight: bold;
+//             font-size: 20px;
+//             font-family: 'Courier New', Courier, monospace;
+
+//             &:hover{
+//                 background: #1307f3f3;
+//                 color: rgb(251, 247, 253);
+//                 font-style: italic;
+//                 font-size: 30px;
+//             }
+//         }
+//     }
+
+//     .footSide{
+//         background: #2f2d5254;
+//         width: 20%;
+//         height: 5vh;
+//         position: absolute;
+//         bottom: 30px;
+//     }
+// }
+// // 
+// .pages{
+//     .pag{
+//         background: white;
+//         overflow-y: scroll;
+//         width: 100%;
+//         height: 78vh;
+//         border-radius: 10px;
+
+//         .header{
+//             background: #2f2d5254;
+
+//             ul{
+//                 display: flex;
+//                 align-items: center;
+//                 justify-content: center;
+//                 text-decoration: none;
+                
+               
+//             }
+//         }
+//     }
+// }
+
+.ajoutEmloye {
+    display: block;
+    background: var(--bg-dark);
+    align-items: center;
+    justify-content: center;
+    height: 481px;
+    width: 850px;
+    border: none;
+    border-radius: 10px;
+    position: relative;
+    top: -560px;
+    right: -300px;
+    box-shadow: 0px 0px 2px 1px var(--color-bluegreen);
+    overflow: hidden;
+  }
+  
+  .ajoutEmloye .head {
+    color: var(--bg-dark);
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    background: beige;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    -webkit-text-stroke: 1px var(--stroke);
+    height: 40px;
+  }
+  
+  .ajoutEmloye .head .fermer {
+    padding-right: 5px;
+  }
+  
+  .ajoutEmloye .head .fermer i#close {
+    font-weight: bold;
+    font-size: 30px;
+    color: red;
+  }
+  
+  .ajoutEmloye .formulaire {
+    color: white;
+    height: 401px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow-y: scroll;
+    padding: 2rem;
+  }
+  
+  .ajoutEmloye .formulaire form {
+    display: flex;
+  }
+  
+  .ajoutEmloye .formulaire h3 {
+    text-decoration-line: underline;
+  }
+  
+  .ajoutEmloye .formulaire div > input {
+    width: 88%;
+    background: var(--color-dark);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid var(--color-bluegreen);
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .ajoutEmloye .formulaire div > label {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .ajoutEmloye .formulaire .genre {
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+  }
+  
+  .ajoutEmloye .formulaire div > select {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    width: 88%;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid var(--color-bluegreen);
+    border-radius: 5px;
+    outline: none;
+    background: var(--bg-dark);
+    color: white;
+  }
+  
+  .ajoutEmloye .formulaire div > select option {
+    background: var(--bg-dark);
+    color: white;
+  }
+  
+  .ajoutEmloye .form-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+    .footer{
+        // position: relative;
+        background: white;
+        width: 100%;
+        height: 40px;
+        bottom: -50px;
+
+        button.annuler{
+            border: none;
+            height: 100%;
+            width: 50%;
+            flex: 1;
+            background: rgb(255, 43, 43);
+            font-weight: bold;
+            font-size: 20px;
+
+            &:hover{
+                color: white;
+                background: red;
+            }
+        }
+        button.ajouter{
+            border: none;
+            height: 100%;
+            width: 50%;
+            flex: 1;
+            background: rgb(31, 28, 255);
+            font-weight: bold;
+            font-size: 20px;
+
+            &:hover{
+                color: white;
+                background: blue;
+            }
+        }
+    }
+
+
+#detailEnTravail {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 1000; // ou toute autre valeur selon vos besoins
+  }
+  
+  .detailEnTravail {
+    display: block;
+    background: var(--bg-dark);
+    height: 481px;
+    width: 850px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px 1px var(--color-bluegreen);
+    overflow: hidden;
+  }
+  
+
+    .head{
+        text-align: center;
+        height: 150px;
+        padding: 20px;
+
+        .pdp{
+            height: 100px;
+            width: 100px;
+            margin-left: 375px;
+            border: var(--color-bluegreen) 1px solid;
+            border-radius: 50%;
+
+        }
+
+    }
+        .bd{
+            display: flex;
+            padding: 9px 30px;
+            height: 280px;
+            width: 100%;
+
+            .perso{
+                display: block;
+                width: 50%;
+                padding: 10px;
+
+                h3{
+                    text-decoration: underline;
+                    color: beige;
+                }
+            }
+
+
+            .emploie{
+                width: 50%;
+                padding: 10px;
+                text-align: center;
+
+                h3{
+                    text-decoration: underline;
+                    color: beige;
+                }
+            }
+            
+        }
+        .foot{
+            display: flex;
+            width: 100%;
+
+            .mod{
+                width: 50%;
+                height: 49px;
+
+                button{
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    justify-content: center;
+                    height: 100%;
+                    width: 100%;
+                    color: white;
+                    background: rgb(44, 44, 245);
+                    border: none;
+                    font-size: 20px;
+
+                    &:hover{
+                        background: blue;
+                    }
+                }
+            }
+
+            .fermer{
+                width: 50%;
+                height: 49px;
+
+                button{
+                    height: 100%;
+                    width: 100%;
+                    color: white;
+                    background: rgb(253, 49, 49);
+                    border: none;
+                    font-size: 20px;
+
+                    &:hover{
+                        background: red;
+                    }
+                }
+            }
+        }
+
